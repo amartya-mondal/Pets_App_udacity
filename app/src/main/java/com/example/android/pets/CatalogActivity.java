@@ -65,9 +65,6 @@ public class CatalogActivity extends AppCompatActivity {
      * the pets database.
      */
     private void displayDatabaseInfo() {
-        // To access our database, we instantiate our subclass of SQLiteOpenHelper
-        // and pass the context, which is the current activity.
-        SQLiteDatabase db=mDbHelper.getReadableDatabase();
 
         //Listing down columns to be displayed
         String[] project={
@@ -78,8 +75,10 @@ public class CatalogActivity extends AppCompatActivity {
                 PetContract.PetEntry.COLUMN_PET_WEIGHT
         };
 
-        //Creating the cursor
-        Cursor cursor= db.query(PetContract.PetEntry.TABLE_NAME,project,null,null,null,null,null);
+        //Creating the cursor and querying via the content provider
+        Cursor cursor= getContentResolver().query(PetContract.PetEntry.CONTENT_URI,project,null,null,null);
+
+        //Referring to the display view
         TextView displayView = (TextView) findViewById(R.id.text_view_pet);
 
         try {

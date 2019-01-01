@@ -40,7 +40,7 @@ public final class PetContract {
         public final static String COLUMN_PET_GENDER = "gender";
         public final static String COLUMN_PET_WEIGHT = "weight";
 
-        //Defining hte values of the constsnats for the gender
+        //Defining hte values of the constants for the gender
         public static final int GENDER_UNKNOWN = 0;
         public static final int GENDER_MALE = 1;
         public static final int GENDER_FEMALE = 2;
